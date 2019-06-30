@@ -1,6 +1,6 @@
 # Rock-Paper-Scissors-Lizard-Spock
 
-<div style="display: inline-block; margin-left: 50%; transform: translateX(-50%);"><img style="height: 20px; width: 20px;" src="IMG/SVG/Rock.svg"><img style="height: 20px; width: 20px;" src="IMG/SVG/Paper.svg"><img style="height: 20px; width: 20px;" src="IMG/SVG/Scissors.svg"><img style="height: 20px; width: 20px;" src="IMG/SVG/Lizard.svg"><img style="height: 20px; width: 20px;" src="IMG/SVG/Spock.svg"></div>
+<img src="https://i.imgur.com/s33MN8M.png">
 <b>Project Info:</b> The modified version of rock, papers scissors game from the tv show "The Big Bang Theory".
 
 <div style="text-align: center;">
