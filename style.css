@@ -18,17 +18,22 @@ body {
 .container {
     max-width: 80%;
     margin: auto;
-    padding: 5px;
+    padding: 15px;
     text-align: center;
 }
 
 header a {
     text-decoration: none;
+    display: inline-block;
 }
 
 #logo img {
-    width: 80px;
-    height: 80px;
+    width: 40px;
+    height: 40px;
+}
+
+header a:hover img {
+    opacity: 0.2;
 }
 
 .restart-btn {
@@ -56,7 +61,7 @@ header a {
 }
 
 .score p:first-child {
-    border: 2px solid green;
+    border: 2px solid #00800071;
     background-color: #b9d6b970;
     color: green;
     padding: 5px;
@@ -65,7 +70,7 @@ header a {
 }
 
 .score p:last-child {
-    border: 2px solid red;
+    border: 2px solid #80000071;
     background-color: #ff00004b;
     color: red;
     padding: 5px;
@@ -76,7 +81,6 @@ header a {
 #Game-Choices {
     width: 500px;
     height: 500px;
-    border: 2px solid #8c8c8c;
     border-radius: 100%;
     position: relative;
     margin: auto;
@@ -97,7 +101,7 @@ header a {
     transform: rotate(var(--rotation));
 }
 
-#Game-Choices svg:hover path { /* Not working on all SVG's*/
+.RPSLS svg:hover path { /* Not working on all SVG's*/
     stroke: red;
 }
 
