@@ -43,8 +43,8 @@ header a:hover img {
 	padding: 5px;
 	border-radius: 15px;
 	color: red;
-	margin: 10px 0px 10px 0px;
 	cursor: pointer;
+	margin: 20px auto;
 }
 
 .restart-btn:hover {
