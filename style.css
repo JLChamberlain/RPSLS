@@ -1,177 +1,185 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
-    /*
+	/*
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     overflow: hidden;
     */
-    font-family: consolas;
+	font-family: consolas;
 }
 
 .container {
-    max-width: 80%;
-    margin: auto;
-    padding: 15px;
-    text-align: center;
+	max-width: 80%;
+	margin: auto;
+	padding: 15px;
+	text-align: center;
 }
 
 header a {
-    text-decoration: none;
-    display: inline-block;
+	text-decoration: none;
+	display: inline-block;
 }
 
 #logo img {
-    width: 40px;
-    height: 40px;
+	width: 40px;
+	height: 40px;
 }
 
 header a:hover img {
-    opacity: 0.2;
+	opacity: 0.2;
 }
 
 .restart-btn {
-    display: none; /* So it isn't visible on first load */
-    background: #ff00004b;
-    border: 2px red solid;
-    padding: 5px;
-    border-radius: 15px;
-    color: red;
-    margin: 10px 0px 10px 0px;
-    cursor: pointer;
+	display: none; /* So it isn't visible on first load */
+	background: #ff00004b;
+	border: 2px red solid;
+	padding: 5px;
+	border-radius: 15px;
+	color: red;
+	margin: 10px 0px 10px 0px;
+	cursor: pointer;
 }
 
 .restart-btn:hover {
-    display: inline-block;
-    background: #b9d6b970;
-    border: 2px green solid;
-    color: green;
+	display: inline-block;
+	background: #b9d6b970;
+	border: 2px green solid;
+	color: green;
 }
 
 .score {
-    margin: 20px 0px 20px 0px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+	margin: 20px 0px 20px 0px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
 }
 
 .score p:first-child {
-    border: 2px solid #00800071;
-    background-color: #b9d6b970;
-    color: green;
-    padding: 5px;
-    border-radius: 5px;
-    margin: 0px 5px 0px 0px;
+	border: 2px solid #00800071;
+	background-color: #b9d6b970;
+	color: green;
+	padding: 5px;
+	border-radius: 5px;
+	margin: 0px 5px 0px 0px;
 }
 
 .score p:last-child {
-    border: 2px solid #80000071;
-    background-color: #ff00004b;
-    color: red;
-    padding: 5px;
-    border-radius: 5px;
-    margin: 0px 0px 0px 5px;
+	border: 2px solid #80000071;
+	background-color: #ff00004b;
+	color: red;
+	padding: 5px;
+	border-radius: 5px;
+	margin: 0px 0px 0px 5px;
 }
 
 #Game-Choices {
-    width: 500px;
-    height: 500px;
-    border-radius: 100%;
-    position: relative;
-    margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 500px;
+	height: 500px;
+	border-radius: 100%;
+	position: relative;
+	margin: auto;
 }
 
 #Game-Choices svg {
-    width: 80px;
-    height: 80px;
-    cursor: pointer;
+	width: 80px;
+	height: 80px;
+	cursor: pointer;
 }
 
 .RPSLS {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    --rotation: 0;
-    transform: rotate(var(--rotation));
+	position: absolute;
+	height: 100%;
+	text-align: center;
+	--rotation: 0;
+	transform: rotate(var(--rotation));
 }
 
-.RPSLS svg:hover path { /* Not working on all SVG's*/
-    stroke: red;
+.RPSLS > div {
+	height: 80px;
+	width: 80px;
+	margin: auto;
+}
+
+.RPSLS > div:hover svg path {
+	stroke: red;
 }
 
 #Paper {
-    --rotation: 72deg;
+	--rotation: 72deg;
 }
 
 #Scissors {
-    --rotation: 144deg;
+	--rotation: 144deg;
 }
 
 #Spock {
-    --rotation: 216deg;
+	--rotation: 216deg;
 }
 
 #Lizard {
-    --rotation: 288deg;
+	--rotation: 288deg;
 }
 
 /* Start of CSS for .modal */
 .text-win {
-    color: green;
+	color: green;
 }
 
 .text-lose {
-    color: red;
+	color: red;
 }
 
 .modal svg {
-    width: 80px;
-    height: 80px;
-    margin: 45% auto;
+	width: 80px;
+	height: 80px;
+	margin: 45% auto;
 }
 
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    overflow: auto;
-    background: #adacac69;
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	background: #adacac69;
 }
 
 .modal-content {
-    background: white;
-    text-align: center;
-    margin: 10% auto;
-    width: 20%;
-    height: 50%;
-    border-radius: 15px;
-    padding: 5px;
-    animation-name: modalopen;
-    animation-duration: 1s;
+	background: white;
+	text-align: center;
+	margin: 10% auto;
+	width: 20%;
+	height: 50%;
+	border-radius: 15px;
+	padding: 5px;
+	animation-name: modalopen;
+	animation-duration: 1s;
 }
 
 .modal-content p {
-    font-size: 25px;
+	font-size: 25px;
 }
 
 @keyframes modalopen {
-    from {
-        opacity: 0; /* Invisible */
-    }
+	from {
+		opacity: 0; /* Invisible */
+	}
 
-    to {
-        opacity: 1 /* Visible */
-    }
+	to {
+		opacity: 1; /* Visible */
+	}
 }
 
 /* End of CSS for .modal */
