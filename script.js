@@ -16,36 +16,51 @@ const scoreboard = {
 
 // Playing the game
 function play(e) {
+	console.log('e ', e);
 	restart.style.display = 'table'; // How to style restart button after user choice
 	const playerChoice = e.target.parentElement.parentElement.id; //To declare the users choice
 	const computerChoice = getComputerChoice();
 	const winner = getWinner(playerChoice, computerChoice);
-	showWinner(winner, computerChoice);
-	console.log(playerChoice, computerChoice, winner); // Log choices and who the winner was.
+	showWinner(winner, computerChoice, playerChoice);
+	console.log('ptarget ', e.target.parentElement.parentElement.id)
+	console.log('pchoice ', playerChoice)
+	console.log('cchoice ', computerChoice)
+	console.log('winner ', winner)
+
+	if (playerChoice === true) {
+		playerChoice = e.target.parentElement.parentElement.id
+	}
+
+	else {
+		playerChoice = e.target.currentTarget.offsetParent.id
+	}
 }
 
 // Get the computers choice
 function getComputerChoice() {
-	const rand = Math.random();
-	if (rand < 0.24) {
+	const rand = Math.floor(Math.random() * 5) + 1;
+	console.log('rand number ', rand)
+	if (rand === 1) {
 		return 'Rock';
 	}
-	else if (rand <= 0.57) {
+	else if (rand === 2) {
 		return 'Paper';
 	}
-	else if (rand <= 0.77) {
+	else if (rand === 3) {
 		return 'Scissors';
 	}
-	else if (rand <= 0.97) {
+	else if (rand === 4) {
 		return 'Lizard';
 	}
-	else {
+	else if (rand === 5) {
 		return 'Spock';
 	}
 }
 
 // Get the games winner/ Game Logic
 function getWinner(playerChoice, computerChoice) {
+	console.log('Get winner:  player ', playerChoice, 'computer ', computerChoice)
+
 	if (playerChoice === computerChoice) { //If they choice the same option then it's a draw
 		return 'Draw';
 	}
@@ -54,17 +69,11 @@ function getWinner(playerChoice, computerChoice) {
 		if (computerChoice === 'Paper') { // But computer chooses Paper
 			return 'computer'; // Computer wins since Paper covers Rock 
 		}
-		else {
-			return 'player';
-		}
 	}
 
 	else if (playerChoice === 'Rock') { // If user chooses Rock
 		if (computerChoice === 'Scissors') { // But computer chooses Scissors
 			return 'player'; // Player wins since Rock crushes Scissors 
-		}
-		else {
-			return 'computer';
 		}
 	}
 
@@ -72,17 +81,11 @@ function getWinner(playerChoice, computerChoice) {
 		if (computerChoice === 'Lizard') { // But computer chooses Lizard
 			return 'player'; // Player wins since Rock crushes Lizard 
 		}
-		else {
-			return 'computer';
-		}
 	}
 
 	else if (playerChoice === 'Rock') { // If user chooses Rock
 		if (computerChoice === 'Spock') { // But computer chooses Spock
 			return 'computer'; // Computer wins since Spock vaporizes Rock 
-		}
-		else {
-			return 'player';
 		}
 	}
 
@@ -90,17 +93,11 @@ function getWinner(playerChoice, computerChoice) {
 		if (computerChoice === 'Rock') { // But computer chooses Rock
 			return 'player'; // Player wins since Paper covers Rock
 		}
-		else {
-			return 'computer';
-		}
 	}
 
 	else if (playerChoice === 'Paper') { // If user chooses Paper
 		if (computerChoice === 'Scissors') { // But computer chooses Scissors
 			return 'computer'; // Computer wins since Scissors cuts Paper
-		}
-		else {
-			return 'player';
 		}
 	}
 
@@ -108,17 +105,11 @@ function getWinner(playerChoice, computerChoice) {
 		if (computerChoice === 'Lizard') { // But computer chooses Lizard
 			return 'computer'; // Computer wins since Lizard eats Paper
 		}
-		else {
-			return 'player';
-		}
 	}
 
 	else if (playerChoice === 'Paper') { // If user chooses Paper
 		if (computerChoice === 'Spock') { // But computer chooses Spock
 			return 'player'; // Player wins since Paper disproves Spock
-		}
-		else {
-			return 'computer';
 		}
 	}
 
@@ -126,17 +117,11 @@ function getWinner(playerChoice, computerChoice) {
 		if (computerChoice === 'Rock') { // But computer choices Rock
 			return 'computer'; // Computer wins since Rock crushes Scissors
 		}
-		else {
-			return 'player';
-		}
 	}
 
 	else if (playerChoice === 'Scissors') { // If user chooses Scissors
 		if (computerChoice === 'Paper') { // But computer choices Paper
 			return 'player'; // Player wins since Scissors cuts Paper
-		}
-		else {
-			return 'computer';
 		}
 	}
 
@@ -144,17 +129,11 @@ function getWinner(playerChoice, computerChoice) {
 		if (computerChoice === 'Lizard') { // But computer choices Lizard
 			return 'player'; // Player wins since Scissors decapitates Lizard
 		}
-		else {
-			return 'computer';
-		}
 	}
 
 	else if (playerChoice === 'Scissors') { // If user chooses Scissors
 		if (computerChoice === 'Spock') { // But computer choices Spock
 			return 'computer'; // Computer wins since Spock smashes Scissors
-		}
-		else {
-			return 'player';
 		}
 	}
 
@@ -162,17 +141,11 @@ function getWinner(playerChoice, computerChoice) {
 		if (computerChoice === 'Rock') { // But computer choices Rock
 			return 'computer'; // Computer wins since Rock smashes Lizard
 		}
-		else {
-			return 'player';
-		}
 	}
 
 	else if (playerChoice === 'Lizard') { // If user chooses Lizard
 		if (computerChoice === 'Paper') { // But computer choices Paper
 			return 'player'; // Player wins since Lizard eats Paper
-		}
-		else {
-			return 'computer';
 		}
 	}
 
@@ -180,17 +153,11 @@ function getWinner(playerChoice, computerChoice) {
 		if (computerChoice === 'Scissors') { // But computer choices Scissors
 			return 'computer'; // Computer wins since Scissors decapitates Lizard
 		}
-		else {
-			return 'player';
-		}
 	}
 
 	else if (playerChoice === 'Lizard') { // If user chooses Lizard
 		if (computerChoice === 'Spock') { // But computer choices Spock
 			return 'player'; // Player wins since Lizard poisons Spock
-		}
-		else {
-			return 'computer';
 		}
 	}
 
@@ -198,17 +165,11 @@ function getWinner(playerChoice, computerChoice) {
 		if (computerChoice === 'Rock') { // But computer choices Rock
 			return 'player'; // player wins since Spock vaporizes Rock
 		}
-		else {
-			return 'computer';
-		}
 	}
 
 	else if (playerChoice === 'Spock') { // If user chooses Spock
 		if (computerChoice === 'Paper') { // But computer choices Paper
 			return 'computer'; // computer wins since Paper disproves Spock
-		}
-		else {
-			return 'player';
 		}
 	}
 
@@ -216,17 +177,11 @@ function getWinner(playerChoice, computerChoice) {
 		if (computerChoice === 'Scissors') { // But computer choices Scissors
 			return 'player'; // player wins since Spock smashes Scissors
 		}
-		else {
-			return 'computer';
-		}
 	}
 
 	else if (playerChoice === 'Spock') { // If user chooses Spock
 		if (computerChoice === 'Lizard') { // But computer choices Lizard
 			return 'computer'; // computer wins since Lizard poisons Spock
-		}
-		else {
-			return 'player';
 		}
 	}
 
@@ -234,14 +189,12 @@ function getWinner(playerChoice, computerChoice) {
 		if (computerChoice === 'Lizard') { // But computer choices Rock
 			return 'computer'; // Computer wins since Lizard poisons Spock
 		}
-		else {
-			return 'player';
-		}
 	}
 }
 
 // Show the winner
 function showWinner(winner, computerChoice, playerChoice) {
+	console.log('Show Winner:  winner ', winner, 'computer ', computerChoice, 'pchoice ', playerChoice)
 	if (winner === 'player') { // If the winner is the player
 		scoreboard.player++; // If player wins add +1 to the score
 		result.innerHTML = `
@@ -268,7 +221,7 @@ function showWinner(winner, computerChoice, playerChoice) {
 			<div class="result">
 			${computerChoice} 
             </div>
-            <p>You both Chose ${computerChoice}</p>`;
+            <p>You both Chose ${playerChoice}</p>`;
 	}
 
 	// Show the score
