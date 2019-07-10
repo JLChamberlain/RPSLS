@@ -138,12 +138,6 @@ header a:hover img {
 	color: red;
 }
 
-.modal svg {
-	width: 80px;
-	height: 80px;
-	margin: 45% auto;
-}
-
 .modal {
 	display: none;
 	position: fixed;

@@ -18,41 +18,34 @@ const scoreboard = {
 function play(e) {
 	console.log('e ', e);
 	restart.style.display = 'table'; // How to style restart button after user choice
-	const playerChoice = e.target.parentElement.parentElement.id; //To declare the users choice
-	const computerChoice = getComputerChoice();
+	const playerChoice = e.target.parentElement.parentElement.id; // To declare the users choice
+	const computerChoice = getComputerChoice(); // Get computers choice
 	const winner = getWinner(playerChoice, computerChoice);
 	showWinner(winner, computerChoice, playerChoice);
 	console.log('ptarget ', e.target.parentElement.parentElement.id)
 	console.log('pchoice ', playerChoice)
 	console.log('cchoice ', computerChoice)
 	console.log('winner ', winner)
-
-	if (playerChoice === true) {
-		playerChoice = e.target.parentElement.parentElement.id
-	}
-
-	else {
-		playerChoice = e.target.currentTarget.offsetParent.id
-	}
+	console.log('svg ', e.target.parentElement) // Log the svg of the users choice
 }
 
 // Get the computers choice
 function getComputerChoice() {
 	const rand = Math.floor(Math.random() * 5) + 1;
 	console.log('rand number ', rand)
-	if (rand === 1) {
+	if (rand == 1) {
 		return 'Rock';
 	}
-	else if (rand === 2) {
+	else if (rand == 2) {
 		return 'Paper';
 	}
-	else if (rand === 3) {
+	else if (rand == 3) {
 		return 'Scissors';
 	}
-	else if (rand === 4) {
+	else if (rand == 4) {
 		return 'Lizard';
 	}
-	else if (rand === 5) {
+	else if (rand == 5) {
 		return 'Spock';
 	}
 }
@@ -61,141 +54,95 @@ function getComputerChoice() {
 function getWinner(playerChoice, computerChoice) {
 	console.log('Get winner:  player ', playerChoice, 'computer ', computerChoice)
 
-	if (playerChoice === computerChoice) { //If they choice the same option then it's a draw
+	if (playerChoice == computerChoice) { //If they chose the same option then it's a draw
 		return 'Draw';
 	}
 
-	else if (playerChoice === 'Rock') { // If user chooses Rock
-		if (computerChoice === 'Paper') { // But computer chooses Paper
-			return 'computer'; // Computer wins since Paper covers Rock 
-		}
+	else if (playerChoice == 'Rock' && computerChoice == 'Paper') { // If user chooses Rock & Computer chooses Paper
+		return 'computer'; // Computer wins since Paper covers Rock 
 	}
 
-	else if (playerChoice === 'Rock') { // If user chooses Rock
-		if (computerChoice === 'Scissors') { // But computer chooses Scissors
-			return 'player'; // Player wins since Rock crushes Scissors 
-		}
+	else if (playerChoice == 'Rock' && computerChoice == 'Scissors') { // If user chooses Rock & Computer chooses Scissors
+		return 'player'; // Player wins since Rock crushes Scissors 
 	}
 
-	else if (playerChoice === 'Rock') { // If user chooses Rock
-		if (computerChoice === 'Lizard') { // But computer chooses Lizard
-			return 'player'; // Player wins since Rock crushes Lizard 
-		}
+	else if (playerChoice == 'Rock' && computerChoice == 'Lizard') { // If user chooses Rock & Computer chooses Lizard
+		return 'player'; // Player wins since Rock crushes Lizard 
 	}
 
-	else if (playerChoice === 'Rock') { // If user chooses Rock
-		if (computerChoice === 'Spock') { // But computer chooses Spock
-			return 'computer'; // Computer wins since Spock vaporizes Rock 
-		}
+	else if (playerChoice == 'Rock' && computerChoice == 'Spock') { // If user chooses Rock & Computer chooses Spock
+		return 'computer'; // Computer wins since Spock vaporizes Rock 
 	}
 
-	else if (playerChoice === 'Paper') { // If user chooses Paper
-		if (computerChoice === 'Rock') { // But computer chooses Rock
-			return 'player'; // Player wins since Paper covers Rock
-		}
+	else if (playerChoice == 'Paper' && computerChoice == 'Rock') { // If user chooses Paper & Computer chooses Rock
+		return 'player'; // Player wins since Paper covers Rock
 	}
 
-	else if (playerChoice === 'Paper') { // If user chooses Paper
-		if (computerChoice === 'Scissors') { // But computer chooses Scissors
-			return 'computer'; // Computer wins since Scissors cuts Paper
-		}
+	else if (playerChoice == 'Paper' && computerChoice == 'Scissors') { // If user chooses Paper & Computer chooses Scissors
+		return 'computer'; // Computer wins since Scissors cuts Paper
 	}
 
-	else if (playerChoice === 'Paper') { // If user chooses Paper
-		if (computerChoice === 'Lizard') { // But computer chooses Lizard
-			return 'computer'; // Computer wins since Lizard eats Paper
-		}
+	else if (playerChoice == 'Paper' && computerChoice == 'Lizard') { // If user chooses Paper & Computer chooses Lizard
+		return 'computer'; // Computer wins since Lizard eats Paper
 	}
 
-	else if (playerChoice === 'Paper') { // If user chooses Paper
-		if (computerChoice === 'Spock') { // But computer chooses Spock
-			return 'player'; // Player wins since Paper disproves Spock
-		}
+	else if (playerChoice == 'Paper' && computerChoice == 'Spock') { // If user chooses Paper & Computer chooses Spock
+		return 'player'; // Player wins since Paper disproves Spock
 	}
 
-	else if (playerChoice === 'Scissors') { // If user chooses Scissors
-		if (computerChoice === 'Rock') { // But computer choices Rock
-			return 'computer'; // Computer wins since Rock crushes Scissors
-		}
+	else if (playerChoice == 'Scissors' && computerChoice == 'Rock') { // If user chooses Scissors & Computer chooses Rock
+		return 'computer'; // Computer wins since Rock crushes Scissors
 	}
 
-	else if (playerChoice === 'Scissors') { // If user chooses Scissors
-		if (computerChoice === 'Paper') { // But computer choices Paper
-			return 'player'; // Player wins since Scissors cuts Paper
-		}
+	else if (playerChoice == 'Scissors' && computerChoice == 'Paper') { // If user chooses Scissors & Computer chooses Paper
+		return 'player'; // Player wins since Scissors cuts Paper
 	}
 
-	else if (playerChoice === 'Scissors') { // If user chooses Scissors
-		if (computerChoice === 'Lizard') { // But computer choices Lizard
-			return 'player'; // Player wins since Scissors decapitates Lizard
-		}
+	else if (playerChoice == 'Scissors' && computerChoice == 'Lizard') { // If user chooses Scissors & Computer chooses Lizard
+		return 'player'; // Player wins since Scissors decapitates Lizard
 	}
 
-	else if (playerChoice === 'Scissors') { // If user chooses Scissors
-		if (computerChoice === 'Spock') { // But computer choices Spock
-			return 'computer'; // Computer wins since Spock smashes Scissors
-		}
+	else if (playerChoice == 'Scissors' && computerChoice == 'Spock') { // If user chooses Scissors & Computer chooses Spock
+		return 'computer'; // Computer wins since Spock smashes Scissors
 	}
 
-	else if (playerChoice === 'Lizard') { // If user chooses Lizard
-		if (computerChoice === 'Rock') { // But computer choices Rock
-			return 'computer'; // Computer wins since Rock smashes Lizard
-		}
+	else if (playerChoice == 'Lizard' && computerChoice == 'Rock') { // If user chooses Lizard & Computer chooses Rock
+		return 'computer'; // Computer wins since Rock smashes Lizard
 	}
 
-	else if (playerChoice === 'Lizard') { // If user chooses Lizard
-		if (computerChoice === 'Paper') { // But computer choices Paper
-			return 'player'; // Player wins since Lizard eats Paper
-		}
+	else if (playerChoice == 'Lizard' && computerChoice == 'Paper') { // If user chooses Lizard & Computer chooses Paper
+		return 'player'; // Player wins since Lizard eats Paper
 	}
 
-	else if (playerChoice === 'Lizard') { // If user chooses Lizard
-		if (computerChoice === 'Scissors') { // But computer choices Scissors
-			return 'computer'; // Computer wins since Scissors decapitates Lizard
-		}
+	else if (playerChoice == 'Lizard' && computerChoice == 'Scissors') { // If user chooses Lizard & Computer chooses Scissors
+		return 'computer'; // Computer wins since Scissors decapitates Lizard
 	}
 
-	else if (playerChoice === 'Lizard') { // If user chooses Lizard
-		if (computerChoice === 'Spock') { // But computer choices Spock
-			return 'player'; // Player wins since Lizard poisons Spock
-		}
+	else if (playerChoice == 'Lizard' && computerChoice == 'Spock') { // If user chooses Lizard & Computer chooses Spock
+		return 'player'; // Player wins since Lizard poisons Spock
 	}
 
-	else if (playerChoice === 'Spock') { // If user chooses Spock
-		if (computerChoice === 'Rock') { // But computer choices Rock
-			return 'player'; // player wins since Spock vaporizes Rock
-		}
+	else if (playerChoice == 'Spock' && computerChoice == 'Rock') { // If user chooses Spock & Computer chooses Rock
+		return 'player'; // player wins since Spock vaporizes Rock
 	}
 
-	else if (playerChoice === 'Spock') { // If user chooses Spock
-		if (computerChoice === 'Paper') { // But computer choices Paper
-			return 'computer'; // computer wins since Paper disproves Spock
-		}
+	else if (playerChoice == 'Spock' && computerChoice == 'Paper') { // If user chooses Spock & Computer chooses Paper
+		return 'computer'; // computer wins since Paper disproves Spock
 	}
 
-	else if (playerChoice === 'Spock') { // If user chooses Spock
-		if (computerChoice === 'Scissors') { // But computer choices Scissors
-			return 'player'; // player wins since Spock smashes Scissors
-		}
+	else if (playerChoice == 'Spock' && computerChoice == 'Scissors') { // If user chooses Spock & Computer chooses Scissors
+		return 'player'; // player wins since Spock smashes Scissors
 	}
 
-	else if (playerChoice === 'Spock') { // If user chooses Spock
-		if (computerChoice === 'Lizard') { // But computer choices Lizard
-			return 'computer'; // computer wins since Lizard poisons Spock
-		}
-	}
-
-	else if (playerChoice === 'Spock') { // If user chooses Spock
-		if (computerChoice === 'Lizard') { // But computer choices Rock
-			return 'computer'; // Computer wins since Lizard poisons Spock
-		}
+	else if (playerChoice == 'Spock' && computerChoice == 'Lizard') { // If user chooses Spock & Computer chooses Lizard
+		return 'computer'; // computer wins since Lizard poisons Spock
 	}
 }
 
 // Show the winner
 function showWinner(winner, computerChoice, playerChoice) {
 	console.log('Show Winner:  winner ', winner, 'computer ', computerChoice, 'pchoice ', playerChoice)
-	if (winner === 'player') { // If the winner is the player
+	if (winner == 'player') { // If the winner is the player
 		scoreboard.player++; // If player wins add +1 to the score
 		result.innerHTML = `
 		<h1 class="text-win">You won</h1>
@@ -205,7 +152,7 @@ function showWinner(winner, computerChoice, playerChoice) {
             <p>Computer Chose ${computerChoice}</p>`;
 	}
 
-	else if (winner === 'computer') { // If the winner is the computer
+	else if (winner == 'computer') { // If the winner is the computer
 		scoreboard.computer++; // If computer wins add +1 to the score
 		result.innerHTML = `
 		<h1 class="text-lose">You Lost</h1>
