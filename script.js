@@ -20,6 +20,7 @@ function play(e) {
 	restart.style.display = 'table'; // How to style restart button after user choice
 	const playerChoice = e.target.parentElement.parentElement.id; // To declare the users choice
 	const computerChoice = getComputerChoice(); // Get computers choice
+	const svg = e.target.parentElement; // Get the svg the user chose
 	const winner = getWinner(playerChoice, computerChoice);
 	showWinner(winner, computerChoice, playerChoice);
 	console.log('ptarget ', e.target.parentElement.parentElement.id)
@@ -140,14 +141,14 @@ function getWinner(playerChoice, computerChoice) {
 }
 
 // Show the winner
-function showWinner(winner, computerChoice, playerChoice) {
+function showWinner(winner, computerChoice, playerChoice, svg) {
 	console.log('Show Winner:  winner ', winner, 'computer ', computerChoice, 'pchoice ', playerChoice)
 	if (winner == 'player') { // If the winner is the player
 		scoreboard.player++; // If player wins add +1 to the score
 		result.innerHTML = `
 		<h1 class="text-win">You won</h1>
 			<div class="result">
-			${playerChoice} 
+			${svg} 
             </div>
             <p>Computer Chose ${computerChoice}</p>`;
 	}
