@@ -22,7 +22,7 @@ function play(e) {
 	const computerChoice = getComputerChoice(); // Get computers choice
 	const svg = e.target.parentElement; // Get the svg the user chose
 	const winner = getWinner(playerChoice, computerChoice);
-	showWinner(winner, computerChoice, playerChoice);
+	showWinner(winner, computerChoice, playerChoice, svg);
 	console.log('ptarget ', e.target.parentElement.parentElement.id)
 	console.log('pchoice ', playerChoice)
 	console.log('cchoice ', computerChoice)
@@ -148,9 +148,9 @@ function showWinner(winner, computerChoice, playerChoice, svg) {
 		result.innerHTML = `
 		<h1 class="text-win">You won</h1>
 			<div class="result">
-			${svg} 
+			${svg.outerHTML} 
             </div>
-            <p>Computer Chose ${computerChoice}</p>`;
+            <p>Computer Chose ${computerChoice}</p>`; // SVG needs to be string
 	}
 
 	else if (winner == 'computer') { // If the winner is the computer
