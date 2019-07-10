@@ -138,6 +138,10 @@ header a:hover img {
 	color: red;
 }
 
+.draw {
+	color: blue;
+}
+
 .modal {
 	display: none;
 	position: fixed;
@@ -189,14 +193,25 @@ header a:hover img {
 	z-index: -1;
 }
 
-.result div {
+.result-win div, .result-lose div , .result-draw div {
 	width: 120px;
 	height: 120px;
 	margin: 10px auto;
 }
 
-.result div svg {
+.result-win div svg, .result-lose div svg , .result-draw div svg {
 	width: 120px;
 	height: 120px;
-	fill: green;
+}
+
+.result-win div svg path {
+	stroke: green;
+}
+
+.result-lose div svg path {
+	stroke: red;
+}
+
+.result-draw div svg path {
+	stroke: blue;
 }

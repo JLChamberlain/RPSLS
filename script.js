@@ -147,7 +147,7 @@ function showWinner(winner, computerChoice, playerChoice, svg) {
 		scoreboard.player++; // If player wins add +1 to the score
 		result.innerHTML = `
 		<h1 class="text-win">You won</h1>
-			<div class="result">
+			<div class="result-win">
 			${svg.outerHTML} 
             </div>
             <p>Computer Chose ${computerChoice}</p>`; // SVG needs to be string
@@ -157,17 +157,17 @@ function showWinner(winner, computerChoice, playerChoice, svg) {
 		scoreboard.computer++; // If computer wins add +1 to the score
 		result.innerHTML = `
 		<h1 class="text-lose">You Lost</h1>
-			<div class="result">
-			${computerChoice} 
+			<div class="result-lose">
+			${svg.outerHTML}
             </div>
-            <p>You Chose ${playerChoice}</p>`;
+            <p>Computer Chose ${computerChoice}</p>`;
 	}
 
 	else { // If the choices are the same return a draw
 		result.innerHTML = `
-		<h1>It's a Draw</h1>
-			<div class="result">
-			${computerChoice} 
+		<h1 class="draw">It's a Draw</h1>
+			<div class="result-draw">
+			${svg.outerHTML}
             </div>
             <p>You both Chose ${playerChoice}</p>`;
 	}
