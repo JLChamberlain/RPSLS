@@ -60,21 +60,19 @@ header a:hover img {
 	grid-template-columns: repeat(2, 1fr);
 }
 
-.score p:first-child {
-	border: 2px solid #00800071;
-	background-color: #b9d6b970;
-	color: green;
+.score p {
+	border: 2px solid #353535;
+	background-color: #ecebebc5;
+	color: #353535;
 	padding: 5px;
 	border-radius: 5px;
+}
+
+.score p:first-child {
 	margin: 0px 5px 0px 0px;
 }
 
 .score p:last-child {
-	border: 2px solid #80000071;
-	background-color: #ff00004b;
-	color: red;
-	padding: 5px;
-	border-radius: 5px;
 	margin: 0px 0px 0px 5px;
 }
 
@@ -206,12 +204,15 @@ header a:hover img {
 
 .result-win div svg path {
 	stroke: green;
+	transform: rotate(0); /* Remove rotation from svg when in modal */
 }
 
 .result-lose div svg path {
 	stroke: red;
+	transform: rotate(0); /* Remove rotation from svg when in modal */
 }
 
 .result-draw div svg path {
 	stroke: blue;
+	transform: rotate(0); /* Remove rotation from svg when in modal */
 }
