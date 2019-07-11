@@ -108,7 +108,7 @@ header a:hover img {
 }
 
 .RPSLS > div:hover svg path {
-	stroke: red;
+	stroke: green;
 }
 
 #Paper {
@@ -155,17 +155,25 @@ header a:hover img {
 .modal-content {
 	background: white;
 	text-align: center;
-	margin: 10% auto;
-	width: 20%;
-	height: 50%;
+	margin: 0 auto;
+	width: 50%;
+	height: 70%;
 	border-radius: 15px;
 	padding: 5px;
 	animation-name: modalopen;
 	animation-duration: 1s;
+	position: absolute;
+	top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .modal-content p {
 	font-size: 25px;
+	width: 100%;
+	padding-bottom: 10px;
+	position: absolute;
+	bottom: 0;
 }
 
 @keyframes modalopen {
@@ -192,14 +200,18 @@ header a:hover img {
 }
 
 .result-win div, .result-lose div, .result-draw div {
-	width: 120px;
-	height: 120px;
+	width: 50%;
+	height: 50%;
 	margin: 10px auto;
+	position: absolute;
+	top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .result-win div svg, .result-lose div svg, .result-draw div svg {
-	width: 120px;
-	height: 120px;
+	width: 100%;
+	height: 100%;
 }
 
 .result-win div svg path {
