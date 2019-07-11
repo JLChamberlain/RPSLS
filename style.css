@@ -138,7 +138,7 @@ header a:hover img {
 	color: red;
 }
 
-.draw {
+.text-draw {
 	color: blue;
 }
 
@@ -193,13 +193,13 @@ header a:hover img {
 	z-index: -1;
 }
 
-.result-win div, .result-lose div , .result-draw div {
+.result-win div, .result-lose div, .result-draw div {
 	width: 120px;
 	height: 120px;
 	margin: 10px auto;
 }
 
-.result-win div svg, .result-lose div svg , .result-draw div svg {
+.result-win div svg, .result-lose div svg, .result-draw div svg {
 	width: 120px;
 	height: 120px;
 }

@@ -165,7 +165,7 @@ function showWinner(winner, computerChoice, playerChoice, svg) {
 
 	else { // If the choices are the same return a draw
 		result.innerHTML = `
-		<h1 class="draw">It's a Draw</h1>
+		<h1 class="text-draw">It's a Draw</h1>
 			<div class="result-draw">
 			${svg.outerHTML}
             </div>
