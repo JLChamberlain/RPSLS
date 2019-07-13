@@ -148,9 +148,9 @@ function showWinner(winner, computerChoice, playerChoice, svg) {
 		result.innerHTML = `
 		<h1 class="text-win">You won</h1>
 			<div class="result-win">
-			${svg.outerHTML} 
+			${svg.outerHTML}
             </div>
-            <p>Computer Chose ${computerChoice}</p>`; // SVG needs to be string
+            <p>Computer Chose ${computerChoice}</p>`;
 	}
 
 	else if (winner == 'computer') { // If the winner is the computer
@@ -169,7 +169,7 @@ function showWinner(winner, computerChoice, playerChoice, svg) {
 			<div class="result-draw">
 			${svg.outerHTML}
             </div>
-            <p>You both Chose ${playerChoice}</p>`;
+            <p>You both Chose ${computerChoice}</p>`;
 	}
 
 	// Show the score
@@ -203,3 +203,89 @@ function clearModal(e) {
 choices.forEach((choice) => choice.addEventListener('click', play));
 window.addEventListener('click', clearModal); // Clear the modal when the user clicks outside
 restart.addEventListener('click', restartGame); // Refresh the scores when the user clicks restart
+
+// Restyling for arrows when hovering over a choice
+function overRock() {
+	var rock = document.querySelectorAll(".RockToScissors, .RockToLizard");
+	rock.forEach(function (el) {
+		el.style.stroke = "#008000";
+		el.style.fill = "#008000";
+	});
+}
+
+function outRock() {
+	var rock = document.querySelectorAll(".RockToScissors, .RockToLizard");
+	rock.forEach(function (el) {
+		el.style.stroke = "#000";
+		el.style.fill = "#000";
+	});
+
+}
+
+function overPaper() {
+	var myPara = document.querySelectorAll(".PaperToRock, .PaperToSpock");
+	myPara.forEach(function (el) {
+		el.style.stroke = "#008000";
+		el.style.fill = "#008000";
+	});
+}
+
+function outPaper() {
+	var myPara = document.querySelectorAll(".PaperToRock, .PaperToSpock");
+	myPara.forEach(function (el) {
+		el.style.stroke = "#000";
+		el.style.fill = "#000";
+	});
+
+}
+
+function overScissors() {
+	var myPara = document.querySelectorAll(".ScissorsToPaper, .ScissorsToLizard");
+	myPara.forEach(function (el) {
+		el.style.stroke = "#008000";
+		el.style.fill = "#008000";
+	});
+}
+
+function outScissors() {
+	var myPara = document.querySelectorAll(".ScissorsToPaper, .ScissorsToLizard");
+	myPara.forEach(function (el) {
+		el.style.stroke = "#000";
+		el.style.fill = "#000";
+	});
+
+}
+
+function overSpock() {
+	var myPara = document.querySelectorAll(".SpockToScissors, .SpockToRock");
+	myPara.forEach(function (el) {
+		el.style.stroke = "#008000";
+		el.style.fill = "#008000";
+	});
+}
+
+function outSpock() {
+	var myPara = document.querySelectorAll(".SpockToScissors, .SpockToRock");
+	myPara.forEach(function (el) {
+		el.style.stroke = "#000";
+		el.style.fill = "#000";
+	});
+
+}
+
+function overLizard() {
+	var myPara = document.querySelectorAll(".LizardToSpock, .LizardToPaper");
+	myPara.forEach(function (el) {
+		el.style.stroke = "#008000";
+		el.style.fill = "#008000";
+	});
+}
+
+function outLizard() {
+	var myPara = document.querySelectorAll(".LizardToSpock, .LizardToPaper");
+	myPara.forEach(function (el) {
+		el.style.stroke = "#000";
+		el.style.fill = "#000";
+	});
+
+}

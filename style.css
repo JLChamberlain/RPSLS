@@ -83,8 +83,10 @@ header a:hover img {
 	width: 500px;
 	height: 500px;
 	border-radius: 100%;
-	position: relative;
-	margin: auto;
+	position: absolute;
+	top: 50%;
+    left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 #Game-Choices .RPSLS div svg {
@@ -215,7 +217,7 @@ header a:hover img {
 }
 
 .result-win div svg path {
-	stroke: green;
+	stroke: #008000;
 	transform: rotate(0); /* Remove rotation from svg when in modal */
 }
 
