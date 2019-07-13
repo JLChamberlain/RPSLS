@@ -20,8 +20,9 @@ function play(e) {
 	restart.style.display = 'table'; // How to style restart button after user choice
 	const playerChoice = e.target.parentElement.parentElement.id; // To declare the users choice
 	const computerChoice = getComputerChoice(); // Get computers choice
+	const svg = e.target.parentElement; // Get the svg the user chose
 	const winner = getWinner(playerChoice, computerChoice);
-	showWinner(winner, computerChoice, playerChoice);
+	showWinner(winner, computerChoice, playerChoice, svg);
 	console.log('ptarget ', e.target.parentElement.parentElement.id)
 	console.log('pchoice ', playerChoice)
 	console.log('cchoice ', computerChoice)
@@ -140,14 +141,14 @@ function getWinner(playerChoice, computerChoice) {
 }
 
 // Show the winner
-function showWinner(winner, computerChoice, playerChoice) {
+function showWinner(winner, computerChoice, playerChoice, svg) {
 	console.log('Show Winner:  winner ', winner, 'computer ', computerChoice, 'pchoice ', playerChoice)
 	if (winner == 'player') { // If the winner is the player
 		scoreboard.player++; // If player wins add +1 to the score
 		result.innerHTML = `
 		<h1 class="text-win">You won</h1>
-			<div class="result">
-			${playerChoice} 
+			<div class="result-win">
+			${svg.outerHTML}
             </div>
             <p>Computer Chose ${computerChoice}</p>`;
 	}
@@ -156,19 +157,19 @@ function showWinner(winner, computerChoice, playerChoice) {
 		scoreboard.computer++; // If computer wins add +1 to the score
 		result.innerHTML = `
 		<h1 class="text-lose">You Lost</h1>
-			<div class="result">
-			${computerChoice} 
+			<div class="result-lose">
+			${svg.outerHTML}
             </div>
-            <p>You Chose ${playerChoice}</p>`;
+            <p>Computer Chose ${computerChoice}</p>`;
 	}
 
 	else { // If the choices are the same return a draw
 		result.innerHTML = `
-		<h1>It's a Draw</h1>
-			<div class="result">
-			${computerChoice} 
+		<h1 class="text-draw">It's a Draw</h1>
+			<div class="result-draw">
+			${svg.outerHTML}
             </div>
-            <p>You both Chose ${playerChoice}</p>`;
+            <p>You both Chose ${computerChoice}</p>`;
 	}
 
 	// Show the score
@@ -202,3 +203,89 @@ function clearModal(e) {
 choices.forEach((choice) => choice.addEventListener('click', play));
 window.addEventListener('click', clearModal); // Clear the modal when the user clicks outside
 restart.addEventListener('click', restartGame); // Refresh the scores when the user clicks restart
+
+// Restyling for arrows when hovering over a choice
+function overRock() {
+	var rock = document.querySelectorAll(".RockToScissors, .RockToLizard");
+	rock.forEach(function (el) {
+		el.style.stroke = "#008000";
+		el.style.fill = "#008000";
+	});
+}
+
+function outRock() {
+	var rock = document.querySelectorAll(".RockToScissors, .RockToLizard");
+	rock.forEach(function (el) {
+		el.style.stroke = "#000";
+		el.style.fill = "#000";
+	});
+
+}
+
+function overPaper() {
+	var myPara = document.querySelectorAll(".PaperToRock, .PaperToSpock");
+	myPara.forEach(function (el) {
+		el.style.stroke = "#008000";
+		el.style.fill = "#008000";
+	});
+}
+
+function outPaper() {
+	var myPara = document.querySelectorAll(".PaperToRock, .PaperToSpock");
+	myPara.forEach(function (el) {
+		el.style.stroke = "#000";
+		el.style.fill = "#000";
+	});
+
+}
+
+function overScissors() {
+	var myPara = document.querySelectorAll(".ScissorsToPaper, .ScissorsToLizard");
+	myPara.forEach(function (el) {
+		el.style.stroke = "#008000";
+		el.style.fill = "#008000";
+	});
+}
+
+function outScissors() {
+	var myPara = document.querySelectorAll(".ScissorsToPaper, .ScissorsToLizard");
+	myPara.forEach(function (el) {
+		el.style.stroke = "#000";
+		el.style.fill = "#000";
+	});
+
+}
+
+function overSpock() {
+	var myPara = document.querySelectorAll(".SpockToScissors, .SpockToRock");
+	myPara.forEach(function (el) {
+		el.style.stroke = "#008000";
+		el.style.fill = "#008000";
+	});
+}
+
+function outSpock() {
+	var myPara = document.querySelectorAll(".SpockToScissors, .SpockToRock");
+	myPara.forEach(function (el) {
+		el.style.stroke = "#000";
+		el.style.fill = "#000";
+	});
+
+}
+
+function overLizard() {
+	var myPara = document.querySelectorAll(".LizardToSpock, .LizardToPaper");
+	myPara.forEach(function (el) {
+		el.style.stroke = "#008000";
+		el.style.fill = "#008000";
+	});
+}
+
+function outLizard() {
+	var myPara = document.querySelectorAll(".LizardToSpock, .LizardToPaper");
+	myPara.forEach(function (el) {
+		el.style.stroke = "#000";
+		el.style.fill = "#000";
+	});
+
+}

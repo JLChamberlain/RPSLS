@@ -60,21 +60,19 @@ header a:hover img {
 	grid-template-columns: repeat(2, 1fr);
 }
 
-.score p:first-child {
-	border: 2px solid #00800071;
-	background-color: #b9d6b970;
-	color: green;
+.score p {
+	border: 2px solid #353535;
+	background-color: #ecebebc5;
+	color: #353535;
 	padding: 5px;
 	border-radius: 5px;
+}
+
+.score p:first-child {
 	margin: 0px 5px 0px 0px;
 }
 
 .score p:last-child {
-	border: 2px solid #80000071;
-	background-color: #ff00004b;
-	color: red;
-	padding: 5px;
-	border-radius: 5px;
 	margin: 0px 0px 0px 5px;
 }
 
@@ -85,8 +83,10 @@ header a:hover img {
 	width: 500px;
 	height: 500px;
 	border-radius: 100%;
-	position: relative;
-	margin: auto;
+	position: absolute;
+	top: 50%;
+    left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 #Game-Choices .RPSLS div svg {
@@ -110,7 +110,7 @@ header a:hover img {
 }
 
 .RPSLS > div:hover svg path {
-	stroke: red;
+	stroke: green;
 }
 
 #Paper {
@@ -138,6 +138,10 @@ header a:hover img {
 	color: red;
 }
 
+.text-draw {
+	color: blue;
+}
+
 .modal {
 	display: none;
 	position: fixed;
@@ -153,17 +157,25 @@ header a:hover img {
 .modal-content {
 	background: white;
 	text-align: center;
-	margin: 10% auto;
-	width: 20%;
-	height: 50%;
+	margin: 0 auto;
+	width: 50%;
+	height: 70%;
 	border-radius: 15px;
 	padding: 5px;
 	animation-name: modalopen;
 	animation-duration: 1s;
+	position: absolute;
+	top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .modal-content p {
 	font-size: 25px;
+	width: 100%;
+	padding-bottom: 10px;
+	position: absolute;
+	bottom: 0;
 }
 
 @keyframes modalopen {
@@ -187,4 +199,34 @@ header a:hover img {
     left: 50%;
 	transform: translate(-50%, -50%);
 	z-index: -1;
+}
+
+.result-win div, .result-lose div, .result-draw div {
+	width: 50%;
+	height: 50%;
+	margin: 10px auto;
+	position: absolute;
+	top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.result-win div svg, .result-lose div svg, .result-draw div svg {
+	width: 100%;
+	height: 100%;
+}
+
+.result-win div svg path {
+	stroke: #008000;
+	transform: rotate(0); /* Remove rotation from svg when in modal */
+}
+
+.result-lose div svg path {
+	stroke: red;
+	transform: rotate(0); /* Remove rotation from svg when in modal */
+}
+
+.result-draw div svg path {
+	stroke: blue;
+	transform: rotate(0); /* Remove rotation from svg when in modal */
 }
