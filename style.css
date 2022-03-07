@@ -76,8 +76,8 @@ header a:hover img {
   width: 500px;
   height: 500px;
   border-radius: 100%;
-  position: absolute;
-  top: 50%;
+  position: relative;
+  top: 250px;
   left: 50%;
   transform: translate(-50%, -50%);
 }
